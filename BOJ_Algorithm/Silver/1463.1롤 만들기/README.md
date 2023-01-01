@@ -8,7 +8,7 @@
 
 ---
 ### 분류
-그래프 이론(Graph Theory), 그래프 탐색(Graph Search), 너비우선탐색(BFS), 깊이우선탐색(DFS)
+DP(Dynamic Programming)
 
 ---
 ### 문제 설명
