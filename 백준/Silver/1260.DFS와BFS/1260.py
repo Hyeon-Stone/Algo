@@ -1,7 +1,7 @@
 from collections import deque
 import sys
 
-def dfs(k):
+def bfs(k):
     visited = [k]
     queue = deque()
     queue.append(k)
@@ -14,7 +14,7 @@ def dfs(k):
                 queue.append(i)
                 visited.append(i)    
 
-def bfs(v, visited = []):
+def dfs(v, visited = []):
     visited.append(v)
     print(v, end=" ")
 
@@ -28,6 +28,6 @@ if __name__ == '__main__':
     for _ in range(M):
         X, Y = map(int, sys.stdin.readline().rstrip().split(' '))
         graph[X][Y] = graph[Y][X] = 1
-    bfs(K)
-    print()
     dfs(K)
+    print()
+    bfs(K)
