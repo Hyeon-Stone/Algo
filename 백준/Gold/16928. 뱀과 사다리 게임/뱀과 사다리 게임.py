@@ -3,7 +3,7 @@ from collections import deque
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-
+board = [0] * 100
 snake = {}
 ladder = {}
 for i in range(n):
@@ -12,9 +12,10 @@ for i in range(n):
 for i in range(m):
     a, b = map(int, input().split())
     ladder[a-1] = b-1
-board = [0] * 100
-def snakeAndLadder(a):
-    q = deque([a])
+
+
+def snakeAndLadder():
+    q = deque([0])
     while(board[99] == 0):
         a = q.popleft()
         for i in range(1,7):
@@ -27,6 +28,5 @@ def snakeAndLadder(a):
                 if board[nextP] == 0:
                     board[nextP] = board[a] + 1
                     q.append(nextP)
-        
-snakeAndLadder(0)
+snakeAndLadder()
 print(board[99])
