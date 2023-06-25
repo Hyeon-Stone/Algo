@@ -1,6 +1,4 @@
-## 2606 바이러스
 import sys
-from collections import deque
 
 input = sys.stdin.readline
 UF = {}
@@ -18,6 +16,7 @@ def union(x, y):
 computerLen = int(input())
 computer = [i for i in range(1, computerLen+1)]
 N = int(input())
+UF[1] = 1
 for _ in range(N):
     a, b = map(int, input().split())
     if a not in UF:
