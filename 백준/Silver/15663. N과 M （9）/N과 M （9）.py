@@ -8,7 +8,7 @@ result = []
 visited = [False] * N
 def back() :
     if len(result) == M :
-        print(*result)
+        print(*result). # print(' '.join(map(str, result)))
         return
     temp = 0
     for i in range(N):
