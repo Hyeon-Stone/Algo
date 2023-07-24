@@ -1,5 +1,5 @@
 -- 코드를 입력하세요
-
+-- for 문 공부 하기
 SET @HOUR = -1;
 SELECT (@HOUR := @HOUR +1) AS HOUR, 
 (SELECT COUNT(*) from ANIMAL_OUTS WHERE HOUR(DATETIME) = @HOUR) as COUNT
