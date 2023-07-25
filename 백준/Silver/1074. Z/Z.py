@@ -1,3 +1,4 @@
+# 수학
 import sys
 input = sys.stdin.readline
 
