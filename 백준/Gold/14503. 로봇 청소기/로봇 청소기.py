@@ -4,7 +4,7 @@ dy = [0, 1, 0, -1]
 n, m = map(int, input().split())
 r, c, d = map(int, input().split())
 graph = [list(map(int, input().split())) for _ in range(n)]
-## 방문 쳌
+
 visited = [[0]*m for _ in range(n)]
 
 visited[r][c] = 1
