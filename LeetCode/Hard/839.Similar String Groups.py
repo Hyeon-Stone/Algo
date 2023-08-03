@@ -20,6 +20,7 @@ def is_similar(val1, val2):
         if val1[i] != val2[i]:
             diff +=1
     return diff == 2
+    
 class Solution:
     def numSimilarGroups(self, strs) -> int:
         for i in range(len(strs)):
