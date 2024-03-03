@@ -1,7 +1,5 @@
-import java.util.Arrays;
-import java.util.List;
 import java.util.HashMap;
-import java.util.stream.Collectors;
+
 class Solution {
     public String solution(String[] participant, String[] completion) {
 
