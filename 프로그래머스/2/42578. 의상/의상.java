@@ -10,6 +10,7 @@ class Solution {
         for(Integer value : clothsMap.values()) {
 			answer *= value +1;
 		}
+        
         return answer -1;
     }
 }
