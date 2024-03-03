@@ -1,19 +1,11 @@
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 class Solution {
     public int solution(int[] nums) {
-        int getPoketmonSize = nums.length / 2;
-		
-        HashMap<Integer, Integer> poketmonTypes = new HashMap<>();
-        for (int num : nums) {
-            poketmonTypes.put(num, poketmonTypes.getOrDefault(num, 0) + 1);
-        }
-        
-        int typeCnt = poketmonTypes.size();
-        if (getPoketmonSize > typeCnt) {
-            return typeCnt;
-        }
-        
-        return getPoketmonSize;
+        return Arrays.stream(nums)
+            .boxed()
+            .collect(Collectors.collectingAndThen(Collectors.toSet(),
+                                                 poketmon -> Integer.min(poketmon.size(), nums.length/2)));
     }
 }
