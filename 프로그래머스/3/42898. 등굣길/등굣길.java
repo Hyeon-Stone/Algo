@@ -2,18 +2,16 @@ class Solution {
     public int solution(int m, int n, int[][] puddles) {
         int [][] map = new int[n+1][m+1];
         
-        if (puddles.length != 0) {
-            for (int[] puddle : puddles) {
-                map[puddle[1]][puddle[0]] = -1;
-            }
+        for (int[] puddle : puddles) {
+            map[puddle[1]][puddle[0]] = -1;
         }
         
         for(int i = 2 ;i < n+1; i++){
-            map[i][1] = (map[i][1] == -1 | map[i-1][1] == -1) ? -1 : 1;
+            map[i][1] = (map[i][1] == -1 || map[i-1][1] == -1) ? -1 : 1;
         }
         
         for(int j = 2 ;j < m+1; j++){
-            map[1][j] = (map[1][j] == -1 | map[1][j-1] == -1) ? -1 : 1;
+            map[1][j] = (map[1][j] == -1 || map[1][j-1] == -1) ? -1 : 1;
         }
         
         for (int i = 2; i < n+1; i++) {
