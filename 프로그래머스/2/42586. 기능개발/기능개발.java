@@ -7,11 +7,16 @@ class Solution {
         List<Integer> answer = new ArrayList<>();
         List<Integer> days = new ArrayList<>();
         for (int i = 0; i < progresses.length; i++) {
-            Integer day = (100 - progresses[i]) / speeds[i];
-            if (((100 - progresses[i]) % speeds[i]) != 0) {
-                day += 1 ;
-            }
-            //Integer day = (int) Math.ceil((double)((100 - progresses[i]) / speeds[i]));
+            // Integer day = (100 - progresses[i]) / speeds[i];
+            // if (((100 - progresses[i]) % speeds[i]) != 0) {
+            //     day += 1 ;
+            // }
+            Integer day = (int) Math.ceil(((100 - (double)progresses[i]) / (double)speeds[i]));
+            // if (day != day2) {
+            //     System.out.println(day);
+            //     System.out.println(day2);
+            // }
+            
             
             Integer len = days.size();
             if (len == 0 || (Collections.max(days) >= day)) {
