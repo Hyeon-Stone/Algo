@@ -26,7 +26,7 @@ class Solution {
                     queue.offer(List.of(nx, ny));
                 }
                 
-            }
+            }   
         }
         
         return maps[n-1][m-1] == 1 ? -1 : maps[n-1][m-1];
