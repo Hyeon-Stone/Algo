@@ -4,48 +4,24 @@ class Solution {
         int v = 1;
         int x = 0;
         int y = 0;
+        int d = 0;
+        int[] dx = {0, 1, -1};
+        int[] dy = {1, 0, -1};
         
         while (true) {
-            // 아래로 진행
-            while (true) {
-                snail[y][x] = v++;
-                if (y+1 == n || snail[y+1][x] != 0) {
+            snail[y][x] = v++;
+            int nx = x + dx[d];
+            int ny = y + dy[d];
+            if (nx == n || ny == n || nx == -1 || ny == -1 || snail[ny][nx] != 0) {
+                d = (d+1) % 3;
+                nx = x + dx[d];
+                ny = y + dy[d];
+                if (nx == n || ny == n || nx == -1 || ny == -1 || snail[ny][nx] != 0) {
                     break;
                 }
-                y += 1;
             }
-            // 오른쪽으로 갈 수 없다면 Stop
-            if (x + 1 == n || snail[y][x+1] != 0) {
-                break;
-            }
-            // 오른쪽으로 가기
-            x += 1;
-            while (true) {
-                snail[y][x] = v++;
-                if (x+1 == n || snail[y][x + 1] != 0) {
-                    break;
-                }
-                x += 1;
-            }
-            // 위로 갈 수 없다면 Stop
-            if (snail[y-1][x-1] != 0) {
-                break;
-            }
-            // 위로 가기
-            x -= 1;
-            y -= 1;
-            while (true) {
-                snail[y][x] = v++;
-                if (snail[y-1][x-1] != 0) {
-                    break;
-                }
-                x -= 1;
-                y -= 1;
-            }
-            if (y + 1 == n || snail[y + 1][x] != 0) {
-                break;
-            }
-            y += 1;
+            x = nx;
+            y = ny;
         }
         
         int index = 0;
