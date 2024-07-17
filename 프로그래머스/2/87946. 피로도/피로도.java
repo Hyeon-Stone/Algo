@@ -1,31 +1,20 @@
-import java.util.*;
-import java.lang.Math;
-
 class Solution {
-    boolean[] checkAlreadyClear = new boolean[8];
+    private static boolean[] visited;
     public int solution(int k, int[][] dungeons) {
-        int answer = 0;
-        int dungeonsSize = dungeons.length;
-        for(int i =0; i< dungeonsSize; i++) {
-            if (dungeons[i][0] <= k) {
-                checkAlreadyClear[i] = true;
-                answer = Math.max(dfs(k-dungeons[i][1], dungeons, 1), answer);
-                checkAlreadyClear[i] = false;
+        visited = new boolean[dungeons.length];
+        return dfs(k, dungeons, 0);
+    }
+    
+    private static int dfs(int k, int[][] dangeons, int answer) {
+        int temp = answer;
+        for (int i = 0; i < dangeons.length; i++) {
+            if (!visited[i] && dangeons[i][0] <= k) {
+                visited[i] = true;
+                answer = Math.max(dfs(k-dangeons[i][1], dangeons, temp+1), answer);
+                visited[i] = false;
             }
         }
         
-        return answer;
-    }
-    
-    private Integer dfs(int k, int[][] dungeons, int answer) {
-        int temp = answer;
-        for (int i = 0; i < dungeons.length; i++) {
-            if (!checkAlreadyClear[i] && dungeons[i][0] <= k) {
-                checkAlreadyClear[i] = true;
-                answer = Math.max(dfs(k-dungeons[i][1], dungeons, temp+1), answer);
-                checkAlreadyClear[i] = false;
-            }   
-        }
         return answer;
     }
 }
